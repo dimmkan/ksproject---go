@@ -21,13 +21,21 @@ func init() {
 
 func main() {
 	router := http.NewServeMux()
-	_ = db.NewDb(config.New())
-	services.NewServicesHandler(router)
+	database := db.NewDb(config.New())
+
+	//Repositories
+	servicesRepository := services.NewServicesRepository(database)
+
+	// Handlers
+	services.NewServicesHandler(router, services.ServicesHandlerDeps{
+		ServicesRepository: servicesRepository,
+	})
 	
 	server := http.Server{
 		Addr: ":8081",
 		Handler: router,
 	}
+	
 	fmt.Println("Server started")
 	server.ListenAndServe()
 }

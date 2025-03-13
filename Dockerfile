@@ -6,6 +6,8 @@ ENV CGO_ENABLED 0
 
 ENV GOOS linux
 
+ENV GOPROXY https://repository.rt.ru/repository/go-proxy.golang.org
+
 RUN apk update --no-cache && apk add --no-cache tzdata
 
 WORKDIR /build

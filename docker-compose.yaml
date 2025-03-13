@@ -1,0 +1,10 @@
+version: '3'
+services:
+  ksproject_golang:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ksproject_golang
+    restart: always
+    env_file:
+      - ./.env

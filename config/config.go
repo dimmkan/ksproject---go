@@ -14,11 +14,6 @@ type DbConfig struct {
   DB_DATABASE string;
 }
 
-type DirectusConfig struct {
-  DIRECTUS_HOST string;
-  ADMIN_API_KEY string;
-}
-
 type Config struct {
   DbConfig DbConfig;
 }

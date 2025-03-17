@@ -14,7 +14,7 @@ func NewServicesRepository(database *db.Db) *ServicesRepository {
 
 func (repo *ServicesRepository) getAllServices() (*[]Service, error) {
 	var services []Service
-	result := repo.Database.DB.Find(&services)
+	result := repo.Database.DB.Limit(100).Find(&services)
 
 	if result.Error != nil {
 		return nil, result.Error

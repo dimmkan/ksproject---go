@@ -34,6 +34,6 @@ COPY --from=builder /app/main /app/main
 
 COPY ./.env .
 
-COPY --from=builder ./static/* /app/static/
+COPY ./static/* .
 
 CMD ["./main"]

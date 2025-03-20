@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"ksproject_go/config"
+	"ksproject_go/internal/file"
 	"ksproject_go/internal/services"
 	"ksproject_go/pkg/db"
 	"log"
@@ -30,6 +31,7 @@ func main() {
 	services.NewServicesHandler(router, services.ServicesHandlerDeps{
 		ServicesRepository: servicesRepository,
 	})
+	file.NewFileHandler(router)
 	
 	server := http.Server{
 		Addr: ":8081",

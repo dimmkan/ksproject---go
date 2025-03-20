@@ -4,15 +4,15 @@ import (
 	"net/http"
 )
 
-type ServicesHandler struct{}
+type FileHandler struct{}
 
-func NewServicesHandler(router *http.ServeMux) {
-	handler := &ServicesHandler{}
-	router.HandleFunc("/file", handler.getAllServices())
+func NewFileHandler(router *http.ServeMux) {
+	handler := &FileHandler{}
+	router.HandleFunc("/file", handler.getFile())
 }
 
-func (handler *ServicesHandler) getAllServices() http.HandlerFunc {
+func (handler *FileHandler) getFile() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		http.ServeFile(w, req, "./internal/file/static/cons-layer-api-v1_0-example.json");
+		http.ServeFile(w, req, "./static/cons-layer-api-v1_0-example.json");
 	}
 }

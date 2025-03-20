@@ -13,6 +13,6 @@ func NewServicesHandler(router *http.ServeMux) {
 
 func (handler *ServicesHandler) getAllServices() http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
-		http.ServeFile(w, req, "./static/cons-layer-api-v1_0-example.json");
+		http.ServeFile(w, req, "./internal/file/static/cons-layer-api-v1_0-example.json");
 	}
 }

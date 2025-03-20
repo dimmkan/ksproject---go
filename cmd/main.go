@@ -31,7 +31,9 @@ func main() {
 	services.NewServicesHandler(router, services.ServicesHandlerDeps{
 		ServicesRepository: servicesRepository,
 	})
-	file.NewFileHandler(router)
+	file.NewFileHandler(router, file.FileHandlerDeps{
+		Config: config.New(),
+	})
 	
 	server := http.Server{
 		Addr: ":8081",

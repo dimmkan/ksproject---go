@@ -14,8 +14,13 @@ type DbConfig struct {
   DB_DATABASE string;
 }
 
+type FileStorage struct {
+  STATIC_FILES_STORAGE string;
+}
+
 type Config struct {
   DbConfig DbConfig;
+  FileStorage FileStorage;
 }
 
 func New() *Config {
@@ -26,6 +31,9 @@ func New() *Config {
       DB_USER: getEnv("DB_USER", ""),
       DB_PASSWORD: getEnv("DB_PASSWORD", ""),
       DB_DATABASE: getEnv("DB_DATABASE", ""),
+    },
+    FileStorage: FileStorage{
+      STATIC_FILES_STORAGE: getEnv("STATIC_FILES_STORAGE", ""),
     },
   };
 }
